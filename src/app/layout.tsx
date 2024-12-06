@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={regular.className}>
       <body className={`flex h-screen justify-center bg-white ${bold.variable}`}>
-        <div className="w-full bg-background sm:w-[500px]">{children}</div>
+        <div className="w-full bg-main-bg sm:w-[500px]">{children}</div>
       </body>
     </html>
   );

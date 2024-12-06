@@ -7,6 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    backgroundImage: {
+      "main-bg": "url('/background.png')",
+    },
     extend: {
       screens: {
         sm: "480px",
