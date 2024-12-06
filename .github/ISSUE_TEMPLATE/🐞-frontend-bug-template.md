@@ -1,9 +1,9 @@
 ---
 name: "\U0001F41E Frontend Bug Template"
 about: 'Frontend Bug Template - 버그 '
-title: ''
-labels: ''
-assignees: ''
+title: "[Bug]"
+labels: bug, frontend
+assignees: 0214kbs
 
 ---
 
