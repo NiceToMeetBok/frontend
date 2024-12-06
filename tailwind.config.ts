@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,6 +16,10 @@ const config: Config = {
         background: "#f0f8ff",
         black: "#111111",
         white: "#ffffff",
+      },
+      fontFamily: {
+        regular: ["var(--font-regular)"],
+        bold: ["var(--font-bold)"],
       },
     },
   },
