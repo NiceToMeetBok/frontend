@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <div className="bg-background">
-      <div className="font-regular text-primary"> 일반 글씨</div>
-      <div className="font-bold text-primary"> 두툼한 글씨</div>
+    <div>
+      <div className="font-regular text-3xl text-primary"> regular font</div>
+      <div className="font-bold text-3xl text-primary"> bold font</div>
     </div>
   );
 }
