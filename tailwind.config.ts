@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     backgroundImage: {
       "main-bg": "url('/background.png')",
+      "out-bg": "url('/out-background.png')",
     },
     extend: {
       screens: {
