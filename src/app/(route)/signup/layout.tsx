@@ -1,3 +1,4 @@
+import SignUpButton from "@/components/bottom/signup-button";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function SignUpLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="pl-[5vw]">
-      <header className="flex h-[15vh] items-center">
+    <div className="flex h-full flex-col justify-between gap-3 pl-[6vw] pr-[6vw]">
+      <header className="flex items-center">
         <div className="font-bold text-3xl">
           <span> 나만의</span>
           <span className="text-primary"> 뱀복이</span>
@@ -19,7 +20,9 @@ export default function SignUpLayout({ children }: { children: React.ReactNode }
         </div>
       </header>
 
-      <div className="flex flex-col">{children}</div>
+      <div className="flex h-full flex-col justify-evenly">{children}</div>
+
+      <SignUpButton active={false} />
     </div>
   );
 }
