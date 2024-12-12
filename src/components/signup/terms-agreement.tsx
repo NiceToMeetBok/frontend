@@ -19,25 +19,37 @@ export default function TermsAgreement({ form }: TermsAgreementProps) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <FormItem>
-        <FormLabel htmlFor="allAgree">
-          <Checkbox id="allAgree" checked={allAgree} onCheckedChange={handleAllAgreeChange} />
-          <span>전체 동의</span>
+        <FormLabel htmlFor="allAgree" className="flex items-center gap-2">
+          <Checkbox
+            className="h-6 w-6"
+            id="allAgree"
+            checked={allAgree}
+            onCheckedChange={handleAllAgreeChange}
+          />
+          <div className="text-base">전체 동의</div>
         </FormLabel>
       </FormItem>
 
-      <hr className="bg-secondary" />
+      <hr className="h-[2px] border-secondary" />
 
       <FormField
         control={form.control}
         name="ageAgree"
         render={({ field }) => (
           <FormItem>
-            <FormLabel htmlFor="ageAgree">
-              <Checkbox id="ageAgree" checked={field.value} onCheckedChange={field.onChange} />
-              <span>필수 </span>
-              <span>14세 이상 동의</span>
+            <FormLabel htmlFor="ageAgree" className="flex items-center gap-2">
+              <Checkbox
+                className="h-6 w-6"
+                id="ageAgree"
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+              <div>
+                <span className="text-base text-warn">(필수) </span>
+                <span className="text-base">14세 이상 동의</span>
+              </div>
             </FormLabel>
             <FormMessage />
           </FormItem>
@@ -49,10 +61,17 @@ export default function TermsAgreement({ form }: TermsAgreementProps) {
         name="privacyAgree"
         render={({ field }) => (
           <FormItem>
-            <FormLabel htmlFor="privacyAgree">
-              <Checkbox id="privacyAgree" checked={field.value} onCheckedChange={field.onChange} />
-              <span>필수 </span>
-              <span>개인정보 수집 동의</span>
+            <FormLabel htmlFor="privacyAgree" className="flex items-center gap-2">
+              <Checkbox
+                className="h-6 w-6"
+                id="privacyAgree"
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
+              <div>
+                <span className="text-base text-warn">(필수) </span>
+                <span className="text-base">개인정보 수집 동의</span>
+              </div>
             </FormLabel>
             <FormMessage />
           </FormItem>

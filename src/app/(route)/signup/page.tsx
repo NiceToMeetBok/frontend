@@ -2,7 +2,7 @@ import SignupForm from "@/components/signup/signup-form";
 
 export default function Page() {
   return (
-    <div className="flex h-full flex-col justify-between gap-3 pl-[6vw] pr-[6vw]">
+    <div className="flex h-full flex-col justify-between pl-[6vw] pr-[6vw]">
       <header className="flex items-center">
         <div className="font-bold text-3xl">
           <span> 나만의</span>
@@ -11,7 +11,7 @@ export default function Page() {
         </div>
       </header>
 
-      <div className="flex h-full flex-col">
+      <div className="flex h-full flex-col justify-center">
         <SignupForm />
       </div>
     </div>

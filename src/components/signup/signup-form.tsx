@@ -27,8 +27,8 @@ export default function SignupForm() {
     mode: "onChange",
   });
 
-  const isButtonDisabled =
-    !form.watch("nickname") || !form.watch("ageAgree") || !form.watch("privacyAgree");
+  const isButtonActive =
+    form.watch("nickname") && form.watch("ageAgree") && form.watch("privacyAgree");
 
   const onSubmit = (data: SignupFormValues) => {
     console.log("form data:", data);
@@ -37,13 +37,16 @@ export default function SignupForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex h-[90%] flex-col justify-between"
+      >
         <NicknameInput form={form} />
         <div className="flex justify-center">
           <img src="/bambok.png" alt="logo" className="w-2/3"></img>
         </div>
         <TermsAgreement form={form} />
-        <SignupButton active={!isButtonDisabled} />
+        <SignupButton active={isButtonActive ? true : false} />
       </form>
     </Form>
   );
