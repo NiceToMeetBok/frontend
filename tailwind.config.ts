@@ -23,6 +23,7 @@ const config: Config = {
         background: "#f0f8ff",
         black: "#111111",
         white: "#ffffff",
+        gray: "#dadada",
       },
       fontFamily: {
         regular: ["var(--font-regular)"],
