@@ -25,7 +25,7 @@ const NicknameInput = ({ form }: NicknameInputProps) => {
           <FormControl>
             <div className="flex w-full items-center gap-2 rounded-md border-2 border-secondary px-3 py-2">
               <Input id="nickname" className="min-w-0 flex-1" placeholder="ex) 보빈" {...field} />
-              <span className="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">
+              <span className="text-darkgray flex-shrink-0 whitespace-nowrap text-sm">
                 님의 뱀복이
               </span>
             </div>

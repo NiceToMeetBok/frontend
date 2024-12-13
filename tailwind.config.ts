@@ -24,6 +24,7 @@ const config: Config = {
         black: "#111111",
         white: "#ffffff",
         gray: "#dadada",
+        darkgray: "#5e5454",
       },
       fontFamily: {
         regular: ["var(--font-regular)"],
