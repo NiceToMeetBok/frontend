@@ -39,7 +39,7 @@ export default function SignupForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex h-[90%] flex-col justify-between"
+        className="flex h-[90%] flex-col justify-between gap-2"
       >
         <NicknameInput form={form} />
         <div className="flex justify-center">
