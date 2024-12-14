@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="h-full">
+    <div className="h-[90vh] max-h-[900px]">
       <div className="item-center flex h-full flex-col justify-evenly">
         <div className="flex flex-col gap-3">
           <div>
