@@ -18,9 +18,9 @@ const config: Config = {
       colors: {
         primary: "#2477a6",
         secondary: "#9bd3eb",
+        tertiay: "#D8EFFF",
         warn: "#ff5449",
         disable: "#d9d9d9",
-        background: "#f0f8ff",
         black: "#111111",
         white: "#ffffff",
         gray: "#dadada",
