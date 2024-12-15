@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex h-screen flex-col">
       <DDayProgress />
 
-      <div className="flex h-[90vh] flex-col justify-around pl-[6vw] pr-[6vw]">
+      <div className="flex h-[90vh] flex-col justify-around pl-[6%] pr-[6%]">
         <header className="flex items-center">
           <div className="font-bold text-3xl">
             <div>
