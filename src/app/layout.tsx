@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`flex h-screen min-w-[320px] justify-center bg-out-bg bg-repeat ${bold.variable}`}
       >
         <div className="flex flex-col justify-center bg-main-bg sm:w-[500px]">
-          <div className="h-[90vh] max-h-[900px]">{children}</div>
+          <div>{children}</div>
         </div>
       </body>
     </html>
