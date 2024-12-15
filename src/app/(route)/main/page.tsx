@@ -1,14 +1,9 @@
+import { DDayProgress } from "@/components/main/d-day-progress";
+
 export default function Page() {
   return (
     <div className="flex h-[100vh] flex-col content-between">
-      {/* TODO : progress bar */}
-      <div>
-        <div>
-          <span>받은 덕담은 </span>
-          <span className="text-primary">2025년 1월 1일</span>
-          <span>에 확인할 수 있어요</span>
-        </div>
-      </div>
+      <DDayProgress />
 
       <div className="flex h-[85vh] flex-col justify-around pl-[6vw] pr-[6vw]">
         {/* 제목 */}
