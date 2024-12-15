@@ -6,7 +6,6 @@ export default function Page() {
       <DDayProgress />
 
       <div className="flex h-[85vh] flex-col justify-around pl-[6vw] pr-[6vw]">
-        {/* 제목 */}
         <header className="flex items-center">
           <div className="font-bold text-3xl">
             <div>
@@ -20,10 +19,12 @@ export default function Page() {
           </div>
         </header>
 
-        {/* 주 content */}
-        <div>
-          <img src="/bambok-basket.png"></img>
-          <div> 뱀복이를 공유하고 덕담을 받아보세요! </div>
+        <div className="relative">
+          <img src="/bambok-basket.png" className="w-full" />
+          <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform text-2xl text-white">
+            <div className="whitespace-nowrap">뱀복이를 공유하고</div>
+            <div className="whitespace-nowrap">덕담을 받아보세요!</div>
+          </div>
         </div>
 
         {/* 하단 버튼 */}
