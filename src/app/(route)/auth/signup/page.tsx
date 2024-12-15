@@ -1,6 +1,6 @@
 import SignupForm from "@/components/signup/signup-form";
 
-export default function Page() {
+export default function Signup() {
   return (
     <div className="flex h-full flex-col justify-between pl-[6vw] pr-[6vw]">
       <header className="flex items-center">
