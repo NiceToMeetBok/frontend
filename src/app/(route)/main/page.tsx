@@ -1,11 +1,12 @@
 import { DDayProgress } from "@/components/main/d-day-progress";
+import URLButton from "@/components/main/url-button";
 
 export default function Page() {
   return (
-    <div className="flex h-[100vh] flex-col content-between">
+    <div className="flex h-screen flex-col">
       <DDayProgress />
 
-      <div className="flex h-[85vh] flex-col justify-around pl-[6vw] pr-[6vw]">
+      <div className="flex h-[90vh] flex-col justify-around pl-[6vw] pr-[6vw]">
         <header className="flex items-center">
           <div className="font-bold text-3xl">
             <div>
@@ -27,14 +28,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* 하단 버튼 */}
-        <div>
-          <div> 친구들에게 링크를 공유해서 덕담을 나눠보세요! </div>
-          <button>
-            <img src="/icon/share.svg" />
-            <div>url 복사하기</div>
-          </button>
-        </div>
+        <URLButton />
       </div>
     </div>
   );
