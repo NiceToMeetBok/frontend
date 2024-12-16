@@ -41,7 +41,7 @@ export const DDayProgress = () => {
         )}
 
         {percent > 40 && percent < 60 && (
-          <div className="flex w-full flex-col items-center font-regular text-[1.4vh]">
+          <div className="flex w-full flex-col items-center justify-center font-regular text-[1.4vh]">
             <span>받은 덕담은 </span>
             <div>
               <span className="text-white">2025년 1월 1일</span>
@@ -58,22 +58,24 @@ export const DDayProgress = () => {
         alt="progress-end"
       />
 
-      <div
-        style={{ width: `${90 - percent}%` }}
-        className="flex w-full flex-col items-center justify-center font-regular text-[1.4vh]"
-      >
-        {percent <= 40 && (
+      {percent <= 40 && (
+        <div className="flex w-full flex-col items-center justify-center font-regular text-[1.4vh]">
           <div>
-            <div>
-              <span>받은 덕담은 </span>
-              <span className="text-primary">2025년 1월 1일</span>
-              <span>에</span>
-            </div>
-            <div> 확인할 수 있어요</div>
+            <span>받은 덕담은 </span>
+            <span className="text-primary">2025년 1월 1일</span>
+            <span>에</span>
           </div>
-        )}
-        {percent > 40 && percent < 60 && <div> 확인할 수 있어요</div>}
-      </div>
+          <div> 확인할 수 있어요</div>
+        </div>
+      )}
+      {percent > 40 && percent < 60 && (
+        <div
+          style={{ width: `${90 - percent}%` }}
+          className="flex w-full flex-col items-center justify-center font-regular text-[1.4vh]"
+        >
+          확인할 수 있어요
+        </div>
+      )}
     </div>
   );
 };
