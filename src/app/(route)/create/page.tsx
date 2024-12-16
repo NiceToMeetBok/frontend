@@ -7,7 +7,9 @@ export default function Create() {
         <div className="font-bold text-3xl">덕담 보내기</div>
       </header>
 
-      <BlessSteps />
+      <div className="flex h-full flex-col justify-center">
+        <BlessSteps />
+      </div>
     </div>
   );
 }
