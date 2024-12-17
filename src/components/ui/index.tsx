@@ -12,3 +12,4 @@ export {
   FormField,
 } from "@/components/ui/form";
 export { Label } from "@/components/ui/label";
+export { Textarea } from "@/components/ui/textarea";
