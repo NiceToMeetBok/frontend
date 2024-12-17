@@ -1,67 +1,39 @@
-import { DDayProgress } from "@/components/main/d-day-progress";
-import URLButton from "@/components/main/url-button";
-import { userInfo, blessings } from "@/mocks/data";
-
-const BASKET_POSITION = [
-  { left: "50%", top: "50%" },
-  { left: "29%", top: "35%" },
-  { left: "75%", top: "38%" },
-  { left: "54%", top: "25%" },
-  { left: "30%", top: "62%" },
-  { left: "70%", top: "62%" },
-];
-
 export default function Home() {
   return (
-    <div className="flex h-screen flex-col">
-      <DDayProgress />
-
-      <div className="flex h-full max-h-[1000px] flex-col justify-around pl-[6%] pr-[6%]">
-        <header className="flex items-center">
-          <div className="font-bold text-3xl">
-            <div>
-              <span className="text-primary">{userInfo.nickname}</span>
-              <span> 님의 뱀복이가</span>
+    <div className="h-[90vh] max-h-[900px]">
+      <div className="item-center flex h-full flex-col justify-evenly">
+        <div className="flex flex-col gap-3">
+          <div>
+            <div className="text-center">
+              <span className="font-bold text-3xl text-primary"> 만반잘복</span>
+              <span className="font-bold text-3xl">으로 따뜻한</span>
             </div>
-            <div>
-              <span className="text-primary">{blessings.length}</span>
-              <span>개의 덕담을 받았어요. </span>
+            <div className="text-center font-bold text-3xl">새해 인사를 주고 받아요!</div>
+          </div>
+          <div className="font-regular text-base">
+            <div className="text-center">
+              <span className="text-primary">만반잘복</span>
+              <span>은 소중한 사람들에게 마음을 전할 수 있는</span>
+            </div>
+            <div className="text-center">
+              <span className="text-primary">온라인 롤링 페이퍼 서비스</span>
+              <span> 입니다.</span>
             </div>
           </div>
-        </header>
-
-        <div className="relative">
-          <img src="/bambok-basket.png" className="w-full" />
-
-          {blessings.length > 0 ? (
-            blessings.map((blessing, index) => {
-              const position = BASKET_POSITION[index % 6];
-
-              return (
-                <div
-                  key={blessing.id}
-                  className="absolute w-[20%] -translate-x-1/2 -translate-y-1/2"
-                  style={{
-                    left: position.left,
-                    top: position.top,
-                  }}
-                >
-                  <div className="flex flex-col items-center">
-                    <img src={`/luckybags/${blessing.luckybagID}.png`} />
-                    <div className="text-sm text-white">{blessing.nickname}</div>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform text-2xl text-white">
-              <div className="whitespace-nowrap">뱀복이를 공유하고</div>
-              <div className="whitespace-nowrap">덕담을 받아보세요!</div>
-            </div>
-          )}
         </div>
-
-        <URLButton />
+        <div className="flex justify-center">
+          <img src="/bambok.png" alt="logo" className="w-5/6"></img>
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="text-center font-regular text-base">
+            <span> ↓↓</span>
+            <span className="text-primary"> 뱀복이</span>
+            <span> 만들러 가기 ↓↓</span>
+          </div>
+          <div className="flex justify-center">
+            <img src="/kakaologin.png" alt="kakaologin" className="w-5/6"></img>
+          </div>
+        </div>
       </div>
     </div>
   );
