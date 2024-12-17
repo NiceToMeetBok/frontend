@@ -1,5 +1,5 @@
-import { DDayProgress } from "@/components/main/d-day-progress";
-import URLButton from "@/components/main/url-button";
+import { DDayProgress } from "@/components/bambok/d-day-progress";
+import URLButton from "@/components/bambok/url-button";
 import { userInfo, blessings } from "@/mocks/data";
 
 const BASKET_POSITION = [
