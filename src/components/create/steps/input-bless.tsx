@@ -13,22 +13,28 @@ export default function InputBless({ onNext, register, watch }: InputBlessProps)
   const message = watch("message");
 
   return (
-    <div className="flex flex-col">
-      <div className="flex w-full items-center gap-2 rounded-md border-2 border-secondary px-3 py-2">
-        <Input
-          id="nickname"
-          className="text-lg"
-          placeholder="닉네임을 작성해주세요"
-          {...register("nickname")}
-        />
+    <div className="flex h-full flex-col justify-between gap-7">
+      <div className="text-lg">
+        <span className="text-primary">뱀복이</span>가 대신 따뜻한 메세지를 전달해 드려요.
       </div>
-      <div className="flex w-full items-center gap-2 rounded-md border-2 border-secondary px-3 py-2">
-        <Textarea
-          id="message"
-          className="text-lg"
-          placeholder="알잘딱깔센 덕담! 새해를 꽉 채워줄 한 줄 덕담 남겨주세요!"
-          {...register("message")}
-        />
+
+      <div className="flex h-[90%] flex-col gap-6">
+        <div className="flex w-full items-center gap-2 rounded-md border-2 border-secondary">
+          <Input
+            id="nickname"
+            className="h-14 text-lg"
+            placeholder="닉네임을 작성해주세요"
+            {...register("nickname")}
+          />
+        </div>
+        <div className="flex w-full flex-1 items-center gap-2 rounded-md border-2 border-secondary">
+          <Textarea
+            id="message"
+            className="h-full text-lg"
+            placeholder={`알잘딱깔센 덕담! \n새해를 꽉 채워줄 덕담을 남겨주세요!`}
+            {...register("message")}
+          />
+        </div>
       </div>
 
       <div className="flex w-full flex-row justify-between">

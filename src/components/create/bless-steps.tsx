@@ -21,7 +21,7 @@ export default function BlessSteps() {
   };
 
   return (
-    <div>
+    <>
       {step === "덕담입력" && (
         <InputBless onNext={() => setStep("복주머니선택")} register={register} watch={watch} />
       )}
@@ -41,6 +41,6 @@ export default function BlessSteps() {
           getValues={getValues}
         />
       )}
-    </div>
+    </>
   );
 }
