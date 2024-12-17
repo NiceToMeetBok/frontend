@@ -19,6 +19,7 @@ const config: Config = {
         primary: "#2477a6",
         secondary: "#9bd3eb",
         tertiay: "#D8EFFF",
+        quaternary: "#F0F8FF",
         warn: "#ff5449",
         disable: "#d9d9d9",
         black: "#111111",
