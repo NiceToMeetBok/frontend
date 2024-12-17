@@ -1,14 +1,20 @@
 import { Button } from "@/components/ui";
+import { BlessFormData } from "@/types/create";
+import { UseFormGetValues } from "react-hook-form";
 
-type NextStepProps = {
+type PreviewProps = {
   onPrevious: () => void;
   onNext: () => void;
+  getValues: UseFormGetValues<BlessFormData>;
 };
 
-export default function Preview({ onPrevious, onNext }: NextStepProps) {
+export default function Preview({ onPrevious, onNext, getValues }: PreviewProps) {
+  const { nickname, message, luckybagid } = getValues();
+
   return (
     <div>
       <div>미리보기</div>
+      <div>{message}</div>
 
       <div className="flex w-full flex-row justify-between">
         <Button onClick={onPrevious} className="h-16 w-[32%] rounded-lg bg-quaternary text-xl">
