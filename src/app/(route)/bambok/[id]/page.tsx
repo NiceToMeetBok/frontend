@@ -13,7 +13,9 @@ const BASKET_POSITION = [
 
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
+  const isSame = userInfo.userid === id;
 
+  console.log("현재 user와 동일한가", isSame);
   return (
     <div className="flex h-screen flex-col">
       <DDayProgress />
