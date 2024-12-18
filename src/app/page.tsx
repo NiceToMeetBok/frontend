@@ -30,9 +30,12 @@ export default function Home() {
             <span className="text-primary"> 뱀복이</span>
             <span> 만들러 가기 ↓↓</span>
           </div>
-          <div className="flex justify-center">
+          <a
+            href={`${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/kakao?redirect_url=http://localhost:3000`}
+            className="flex justify-center"
+          >
             <img src="/kakaologin.png" alt="kakaologin" className="w-5/6"></img>
-          </div>
+          </a>
         </div>
       </div>
     </div>

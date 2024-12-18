@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -30,8 +31,10 @@ export default function SignupForm() {
   const isButtonActive =
     form.watch("nickname") && form.watch("ageAgree") && form.watch("privacyAgree");
 
+  const code = useSearchParams().get("token");
   const onSubmit = (data: SignupFormValues) => {
-    console.log("form data:", data);
+    console.log(data.nickname);
+    console.log(code);
     // TODO : 회원가입 API 호출
   };
 
