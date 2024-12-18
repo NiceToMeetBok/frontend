@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -7,6 +8,9 @@ import { Form } from "@/components/ui/index";
 import NicknameInput from "./nickname-input";
 import TermsAgreement from "./terms-agreement";
 import SignupButton from "./signup-button";
+
+import { useRouter } from "next/navigation";
+import { putNickname } from "@/services/put-nickname";
 
 const signupSchema = z.object({
   nickname: z.string().nonempty(),
@@ -17,6 +21,10 @@ const signupSchema = z.object({
 export type SignupFormValues = z.infer<typeof signupSchema>;
 
 export default function SignupForm() {
+  const code = useSearchParams().get("code") || "";
+
+  const router = useRouter();
+
   const form = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
@@ -30,9 +38,16 @@ export default function SignupForm() {
   const isButtonActive =
     form.watch("nickname") && form.watch("ageAgree") && form.watch("privacyAgree");
 
-  const onSubmit = (data: SignupFormValues) => {
-    console.log("form data:", data);
-    // TODO : 회원가입 API 호출
+  const onSubmit = async (data: SignupFormValues) => {
+    console.log(data.nickname);
+    console.log(code);
+    const response = await putNickname(code, data.nickname);
+    if (response) {
+      const { id } = response;
+      router.push(`/bambok/${id}`);
+    } else {
+      console.error("닉네임 저장 실패.");
+    }
   };
 
   return (
