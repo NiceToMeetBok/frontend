@@ -2,10 +2,9 @@ import { Blessing } from "@/types/blessings";
 import { UserType } from "@/types/user";
 
 export const userInfo: UserType = {
-  id: 1,
-  identifier: "3839627982",
-  nickname: "보선",
-  code: "1234",
+  identifier: "10",
+  nickname: "test",
+  createdAt: "2024-12-19T12:33:56.633697743",
 };
 
 export const blessings: Blessing[] = [
