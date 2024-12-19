@@ -3,9 +3,9 @@ import { UserType } from "@/types/user";
 
 export const userInfo: UserType = {
   id: 1,
-  identifier: "1abc",
+  identifier: "3839627982",
   nickname: "보선",
-  code: "1234 ",
+  code: "1234",
 };
 
 export const blessings: Blessing[] = [
