@@ -15,7 +15,7 @@ const BASKET_POSITION = [
 
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
-  const isSame = userInfo.userid === id;
+  const isSame = userInfo?.identifier === id;
 
   // console.log("현재 user와 동일한가", isSame);
   return (
@@ -26,7 +26,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
         <header className="flex items-center">
           <div className="font-bold text-3xl">
             <div>
-              <span className="text-primary">{userInfo.nickname}</span>
+              <span className="text-primary">{userInfo?.nickname}</span>
               <span> 님의 뱀복이가</span>
             </div>
             <div>

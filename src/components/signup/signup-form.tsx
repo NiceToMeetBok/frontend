@@ -43,8 +43,8 @@ export default function SignupForm() {
     console.log(code);
     const response = await putNickname(code, data.nickname);
     if (response) {
-      const { id } = response;
-      router.push(`/bambok/${id}`);
+      const { identifier } = response;
+      router.push(`/bambok/${identifier}`);
     } else {
       console.error("닉네임 저장 실패.");
     }

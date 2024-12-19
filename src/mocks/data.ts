@@ -1,9 +1,11 @@
 import { Blessing } from "@/types/blessings";
-import { UserInfoType } from "@/types/user";
+import { UserType } from "@/types/user";
 
-export const userInfo: UserInfoType = {
-  userid: "1abc",
+export const userInfo: UserType = {
+  id: 1,
+  identifier: "1abc",
   nickname: "보선",
+  code: "1234 ",
 };
 
 export const blessings: Blessing[] = [

@@ -1,4 +1,6 @@
-export interface UserInfoType {
-  userid: string;
+export interface UserType {
+  code: string;
+  id: number;
+  identifier: string;
   nickname: string;
 }
