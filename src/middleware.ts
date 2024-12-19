@@ -16,7 +16,23 @@ export async function middleware(request: NextRequest) {
     if (token) {
       const data: UserType | null = await getUserByToken(token);
       if (data) {
-        return NextResponse.redirect(new URL(`/bambok/${data?.identifier}`, request.url));
+        const response = NextResponse.redirect(new URL(`/bambok/${data?.identifier}`, request.url));
+
+        const tokenCookie = {
+          name: "token",
+          expires: Date.now() + 1 * 60 * 60 * 1000,
+          httpOnly: true,
+          value: token,
+        };
+        const userCookie = {
+          name: "user",
+          expires: Date.now() + 1 * 60 * 60 * 1000,
+          httpOnly: true,
+          value: JSON.stringify(data),
+        };
+        response.cookies.set(tokenCookie);
+        response.cookies.set(userCookie);
+        return response;
       } else {
         return NextResponse.redirect(new URL("/", request.url));
       }

@@ -1,8 +1,9 @@
 import { DDayProgress } from "@/components/bambok/d-day-progress";
 import URLButton from "@/components/bambok/url-button";
 import { Button } from "@/components/ui";
-import { userInfo, blessings } from "@/mocks/data";
+import { blessings } from "@/mocks/data";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 const BASKET_POSITION = [
   { left: "50%", top: "50%" },
@@ -15,9 +16,12 @@ const BASKET_POSITION = [
 
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
-  const isSame = userInfo?.identifier === id;
-
+  const userCookieStore = cookies().get("user")?.value;
+  const userInfo = userCookieStore ? JSON.parse(userCookieStore) : null;
+  const isSame = userInfo && userInfo.identifier === id;
+  // console.log(userInfo);
   // console.log("현재 user와 동일한가", isSame);
+
   return (
     <div className="flex h-screen flex-col">
       {isSame && <DDayProgress />}
