@@ -4,6 +4,7 @@ import { Button } from "@/components/ui";
 import { blessings } from "@/mocks/data";
 import Link from "next/link";
 import { cookies } from "next/headers";
+import TitleNickname from "@/components/bambok/title-nickname";
 
 const BASKET_POSITION = [
   { left: "50%", top: "50%" },
@@ -17,11 +18,10 @@ const BASKET_POSITION = [
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
   const userCookieStore = cookies().get("user")?.value;
-  const userInfo = userCookieStore ? JSON.parse(userCookieStore) : null;
-  const isSame = userInfo && userInfo.identifier === id;
-  // console.log(userInfo);
+  const loggedInUser = userCookieStore ? JSON.parse(userCookieStore) : null; // 현재 유저
+  const isSame = loggedInUser && loggedInUser.identifier === id;
+  console.log(loggedInUser);
   // console.log("현재 user와 동일한가", isSame);
-
   return (
     <div className="flex h-screen flex-col">
       {isSame && <DDayProgress />}
@@ -29,10 +29,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
       <div className="flex h-full max-h-[1000px] flex-col justify-around pl-[6%] pr-[6%]">
         <header className="flex items-center">
           <div className="font-bold text-3xl">
-            <div>
-              <span className="text-primary">{userInfo?.nickname}</span>
-              <span> 님의 뱀복이가</span>
-            </div>
+            <TitleNickname isSame={isSame} identifier={id} loggedInUser={loggedInUser} />
             <div>
               <span className="text-primary">{blessings.length}</span>
               <span>개의 덕담을 받았어요. </span>
