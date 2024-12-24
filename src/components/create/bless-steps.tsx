@@ -5,19 +5,38 @@ import InputBless from "./steps/input-bless";
 import SelectLuckybag from "./steps/select-luckybag";
 import Preview from "./steps/preview";
 import { BlessFormData } from "@/types/create";
+import { postBlessing } from "@/services/post-blessing";
+import { LuckyBagIdType } from "@/types/blessings";
+import { useRouter } from "next/navigation";
 
-export default function BlessSteps() {
+export default function BlessSteps({ identifier }: { identifier: string }) {
+  const router = useRouter();
+
   const [step, setStep] = useState<"덕담입력" | "복주머니선택" | "미리보기">("덕담입력");
   const { register, handleSubmit, setValue, getValues, watch } = useForm<BlessFormData>({
     defaultValues: {
       nickname: "",
       message: "",
-      luckyBagId: 1,
+      luckyBagId: 1 as LuckyBagIdType,
     },
   });
 
-  const onSubmit: SubmitHandler<BlessFormData> = (data) => {
-    console.log("전체 데이터:", data);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
+  const onSubmit: SubmitHandler<BlessFormData> = async (data) => {
+    // console.log("전체 데이터:", data);
+    await postBlessing({
+      identifier: identifier,
+      nickname: data.nickname,
+      body: data.message,
+      luckyBagId: data.luckyBagId as LuckyBagIdType,
+    });
+
+    setShowSuccessAlert(true);
+    setTimeout(() => {
+      setShowSuccessAlert(false);
+      router.push(`/bambok/${identifier}`);
+    }, 1000);
   };
 
   return (
@@ -40,6 +59,11 @@ export default function BlessSteps() {
           onNext={handleSubmit(onSubmit)}
           getValues={getValues}
         />
+      )}
+      {showSuccessAlert && (
+        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 rounded-3xl bg-black bg-opacity-50 px-4 py-4">
+          덕담 남기기 성공!
+        </div>
       )}
     </>
   );

@@ -39,8 +39,6 @@ export default function SignupForm() {
     form.watch("nickname") && form.watch("ageAgree") && form.watch("privacyAgree");
 
   const onSubmit = async (data: SignupFormValues) => {
-    console.log(data.nickname);
-    console.log(code);
     const response = await putNickname(code, data.nickname);
     if (response) {
       const { identifier } = response;
