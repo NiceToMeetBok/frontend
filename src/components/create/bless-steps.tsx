@@ -7,8 +7,11 @@ import Preview from "./steps/preview";
 import { BlessFormData } from "@/types/create";
 import { postBlessing } from "@/services/post-blessing";
 import { LuckyBagIdType } from "@/types/blessings";
+import { useRouter } from "next/navigation";
 
 export default function BlessSteps({ identifier }: { identifier: string }) {
+  const router = useRouter();
+
   const [step, setStep] = useState<"덕담입력" | "복주머니선택" | "미리보기">("덕담입력");
   const { register, handleSubmit, setValue, getValues, watch } = useForm<BlessFormData>({
     defaultValues: {
@@ -19,13 +22,15 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
   });
 
   const onSubmit: SubmitHandler<BlessFormData> = async (data) => {
-    console.log("전체 데이터:", data);
+    // console.log("전체 데이터:", data);
     await postBlessing({
       identifier: identifier,
       nickname: data.nickname,
       body: data.message,
       luckyBagId: data.luckyBagId as LuckyBagIdType,
     });
+
+    router.push(`/bambok/${identifier}`);
   };
 
   return (
