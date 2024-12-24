@@ -21,6 +21,8 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
     },
   });
 
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+
   const onSubmit: SubmitHandler<BlessFormData> = async (data) => {
     // console.log("전체 데이터:", data);
     await postBlessing({
@@ -30,7 +32,11 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
       luckyBagId: data.luckyBagId as LuckyBagIdType,
     });
 
-    router.push(`/bambok/${identifier}`);
+    setShowSuccessAlert(true);
+    setTimeout(() => {
+      setShowSuccessAlert(false);
+      router.push(`/bambok/${identifier}`);
+    }, 1000);
   };
 
   return (
@@ -53,6 +59,11 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
           onNext={handleSubmit(onSubmit)}
           getValues={getValues}
         />
+      )}
+      {showSuccessAlert && (
+        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 rounded-3xl bg-black bg-opacity-50 px-4 py-4">
+          덕담 남기기 성공!
+        </div>
       )}
     </>
   );
