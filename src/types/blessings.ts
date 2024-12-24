@@ -1,8 +1,8 @@
 type LuckybagType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface Blessing {
-  id: string;
+export interface BlessingType {
   nickname: string;
-  luckybagID: LuckybagType;
-  message: string;
+  luckyBagId: LuckybagType;
+  body: string;
+  identifier?: string; // post 에 사용
 }
