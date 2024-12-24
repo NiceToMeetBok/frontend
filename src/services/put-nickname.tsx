@@ -1,11 +1,5 @@
-export interface UserInfoType {
-  code: string;
-  id: number;
-  identifier: string;
-  nickname: string;
-}
-
-export const putNickname = async (code: string, nickname: string): Promise<UserInfoType | null> => {
+import { UserType } from "@/types/user";
+export const putNickname = async (code: string, nickname: string): Promise<UserType | null> => {
   const payload = {
     nickname,
     code,
@@ -25,7 +19,8 @@ export const putNickname = async (code: string, nickname: string): Promise<UserI
       return null;
     }
 
-    const data: UserInfoType = await response.json();
+    const data: UserType = await response.json();
+
     return data;
   } catch (error) {
     console.error("Put Nickname 요청 실패:", error);

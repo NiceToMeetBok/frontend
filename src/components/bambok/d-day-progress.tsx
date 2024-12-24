@@ -22,7 +22,7 @@ export const DDayProgress = () => {
     return () => clearInterval(interval);
   }, []);
 
-  console.log(percent);
+  // console.log(percent);
   return (
     <div className="relative flex h-[6vh] w-full bg-secondary">
       <div

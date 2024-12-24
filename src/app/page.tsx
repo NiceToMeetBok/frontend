@@ -31,7 +31,7 @@ export default function Home() {
             <span> 만들러 가기 ↓↓</span>
           </div>
           <a
-            href={`${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/kakao?redirect_url=http://localhost:3000`}
+            href={`${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/kakao?redirect_url=${process.env.NEXT_PUBLIC_BASE_URL}`}
             className="flex justify-center"
           >
             <img src="/kakaologin.png" alt="kakaologin" className="w-5/6"></img>
