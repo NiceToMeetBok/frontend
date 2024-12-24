@@ -4,7 +4,7 @@ import { getUserByToken } from "./services/get-user-by-token";
 import { UserType } from "./types/user";
 
 export const config = {
-  matcher: ["/", "/bambok", "/bambok/:path*"],
+  matcher: ["/", "/signup", "/bambok", "/bambok/:path*"],
 };
 
 export async function middleware(request: NextRequest) {
@@ -24,6 +24,12 @@ export async function middleware(request: NextRequest) {
       }
     }
     return NextResponse.next();
+  }
+  if (pathname === "/signup") {
+    const userCookie = request.cookies.get("user")?.value;
+    if (!userCookie) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
   }
   if (pathname === "/bambok") {
     const token = searchParams.get("token");
