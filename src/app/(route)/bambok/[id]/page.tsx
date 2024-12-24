@@ -4,7 +4,7 @@ import { Button } from "@/components/ui";
 import { blessings } from "@/mocks/data";
 import Link from "next/link";
 import { cookies } from "next/headers";
-import TitleNickname from "@/components/bambok/title-nickname";
+import Title from "@/components/bambok/title";
 
 const BASKET_POSITION = [
   { left: "50%", top: "50%" },
@@ -18,24 +18,17 @@ const BASKET_POSITION = [
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
   const userCookieStore = cookies().get("user")?.value;
+  const token = cookies().get("token")?.value || "";
   const loggedInUser = userCookieStore ? JSON.parse(userCookieStore) : null; // 현재 유저
   const isSame = loggedInUser && loggedInUser.identifier === id;
-  console.log(loggedInUser);
-  // console.log("현재 user와 동일한가", isSame);
+  console.log("현재 user와 동일한가", isSame);
+
   return (
     <div className="flex h-screen flex-col">
       {isSame && <DDayProgress />}
 
       <div className="flex h-full max-h-[1000px] flex-col justify-around pl-[6%] pr-[6%]">
-        <header className="flex items-center">
-          <div className="font-bold text-3xl">
-            <TitleNickname isSame={isSame} identifier={id} loggedInUser={loggedInUser} />
-            <div>
-              <span className="text-primary">{blessings.length}</span>
-              <span>개의 덕담을 받았어요. </span>
-            </div>
-          </div>
-        </header>
+        <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />
 
         <div className="relative">
           <img src="/bambok-basket.png" className="w-full" />
@@ -54,7 +47,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
                   }}
                 >
                   <div className="flex flex-col items-center">
-                    <img src={`/luckybags/${blessing.luckybagID}.png`} />
+                    <img src={`/luckybags/${blessing.luckyBagId}.png`} />
                     <div className="text-sm text-white">{blessing.nickname}</div>
                   </div>
                 </div>
