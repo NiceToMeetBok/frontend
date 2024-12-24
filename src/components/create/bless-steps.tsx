@@ -12,7 +12,7 @@ export default function BlessSteps() {
     defaultValues: {
       nickname: "",
       message: "",
-      luckybagid: 1,
+      luckyBagId: 1,
     },
   });
 

@@ -15,7 +15,7 @@ export default function SelectLuckybag({
   setValue,
   watch,
 }: SelectLuckybagProps) {
-  const luckybagid = watch("luckybagid");
+  const luckyBagId = watch("luckyBagId");
   const luckybagslist = Array.from({ length: 12 }, (_, index) => index + 1);
 
   return (
@@ -29,9 +29,9 @@ export default function SelectLuckybag({
           {luckybagslist.map((id) => (
             <div
               key={id}
-              onClick={() => setValue("luckybagid", id)}
+              onClick={() => setValue("luckyBagId", id)}
               className={`cursor-pointer rounded-lg border-2 ${
-                luckybagid === id ? "border-secondary" : "border-none"
+                luckyBagId === id ? "border-secondary" : "border-none"
               } p-2`}
             >
               <img src={`/luckybags/${id}.png`} className="mx-auto w-3/4 object-contain" />
