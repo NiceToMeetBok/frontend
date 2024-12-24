@@ -31,7 +31,7 @@ const Title = ({ isSame, identifier, loggedInUser, token }: TitleProps) => {
       }
     };
     fetchData();
-  }, [isSame, identifier]);
+  }, [isSame, identifier, token]);
 
   return (
     <>
