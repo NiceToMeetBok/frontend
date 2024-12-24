@@ -29,7 +29,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
               <div className="mb-2 text-center text-sm text-primary"> 없다면 만들어봐요! </div>
               <Button className="h-16 w-full rounded-lg bg-quaternary text-xl">내 뱀복이</Button>
             </Link>
-            <Link className="w-[65%]" href="/create">
+            <Link className="w-[65%]" href={`/create/${id}`}>
               <div className="mb-2 text-center text-sm">
                 작성하신 덕담은 <span className="text-primary">2025년 1월 1일</span>에 공개 돼요!
               </div>

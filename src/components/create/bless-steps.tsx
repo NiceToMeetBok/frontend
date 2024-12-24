@@ -5,19 +5,27 @@ import InputBless from "./steps/input-bless";
 import SelectLuckybag from "./steps/select-luckybag";
 import Preview from "./steps/preview";
 import { BlessFormData } from "@/types/create";
+import { postBlessing } from "@/services/post-blessing";
+import { LuckyBagIdType } from "@/types/blessings";
 
-export default function BlessSteps() {
+export default function BlessSteps({ identifier }: { identifier: string }) {
   const [step, setStep] = useState<"덕담입력" | "복주머니선택" | "미리보기">("덕담입력");
   const { register, handleSubmit, setValue, getValues, watch } = useForm<BlessFormData>({
     defaultValues: {
       nickname: "",
       message: "",
-      luckyBagId: 1,
+      luckyBagId: 1 as LuckyBagIdType,
     },
   });
 
-  const onSubmit: SubmitHandler<BlessFormData> = (data) => {
+  const onSubmit: SubmitHandler<BlessFormData> = async (data) => {
     console.log("전체 데이터:", data);
+    await postBlessing({
+      identifier: identifier,
+      nickname: data.nickname,
+      body: data.message,
+      luckyBagId: data.luckyBagId as LuckyBagIdType,
+    });
   };
 
   return (
