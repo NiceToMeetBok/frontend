@@ -4,12 +4,27 @@ import { getUserByToken } from "./services/get-user-by-token";
 import { UserType } from "./types/user";
 
 export const config = {
-  matcher: ["/bambok", "/bambok/:path*"],
+  matcher: ["/", "/bambok", "/bambok/:path*"],
 };
 
 export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
+  if (pathname === "/") {
+    const userCookie = request.cookies.get("user")?.value;
+    if (userCookie) {
+      try {
+        const userData = JSON.parse(userCookie);
+        if (userData?.identifier) {
+          return NextResponse.redirect(new URL(`/bambok/${userData.identifier}`, request.url));
+        }
+      } catch (error) {
+        console.error("User cookie 파싱 오류:", error);
+        return NextResponse.next();
+      }
+    }
+    return NextResponse.next();
+  }
   if (pathname === "/bambok") {
     const token = searchParams.get("token");
 
