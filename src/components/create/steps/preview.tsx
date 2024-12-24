@@ -9,7 +9,7 @@ type PreviewProps = {
 };
 
 export default function Preview({ onPrevious, onNext, getValues }: PreviewProps) {
-  const { nickname, message, luckybagid } = getValues();
+  const { nickname, message, luckyBagId } = getValues();
   const messageLines = message.trim().split("\n");
 
   return (
