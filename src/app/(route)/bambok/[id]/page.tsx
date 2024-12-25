@@ -22,7 +22,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
         <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />
         <Basket isSame={isSame} identifier={id} token={token} />
         {isSame ? (
-          <URLButton />
+          <URLButton identifier={id} />
         ) : (
           <div className="flex w-full flex-row justify-between">
             <Link className="w-[32%]" href="/">
