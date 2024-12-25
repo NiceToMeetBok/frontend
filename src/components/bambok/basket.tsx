@@ -74,31 +74,33 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
               </div>
             );
           })}
-          <div className="absolute left-1/2 flex -translate-x-1/2 transform gap-2 text-black">
-            <button
-              onClick={() => handlePageChange(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
-            >
-              &lt;
-            </button>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          {totalPages > 1 && (
+            <div className="absolute left-1/2 flex -translate-x-1/2 transform gap-2 text-black">
               <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`px-4 py-2 ${page === currentPage && "bg-secondary"} rounded-3xl`}
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
               >
-                {page}
+                &lt;
               </button>
-            ))}
-            <button
-              onClick={() => handlePageChange(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
-            >
-              &gt;
-            </button>
-          </div>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`px-4 py-2 ${page === currentPage && "bg-secondary"} rounded-3xl`}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
+              >
+                &gt;
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform text-2xl text-white">
