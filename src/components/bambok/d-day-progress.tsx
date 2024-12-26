@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 const DDAYTimeStamp = new Date("2025-01-01 00:00:00").getTime();
 
-export const DDayProgress = () => {
-  let signupdate = "2024-12-20 12:00:00"; // 임시 -> 나중에 user 정보에서 가져올 예정
-
-  const SignupTimeStamp = new Date(signupdate).getTime();
+export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
+  const SignupTimeStamp = new Date(createdAt).getTime();
   const [percent, setPercent] = useState(0);
   const totalDuration = DDAYTimeStamp - SignupTimeStamp;
 
