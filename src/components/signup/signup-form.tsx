@@ -10,10 +10,10 @@ import TermsAgreement from "./terms-agreement";
 import SignupButton from "./signup-button";
 
 import { useRouter } from "next/navigation";
-import { putNickname } from "@/services/put-nickname";
+import { putNickname } from "@/services/apis/put-nickname";
 
 const signupSchema = z.object({
-  nickname: z.string().nonempty(),
+  nickname: z.string().nonempty().max(8, "닉네임은 최대 6자까지 가능합니다."),
   ageAgree: z.boolean(),
   privacyAgree: z.boolean(),
 });
@@ -39,11 +39,12 @@ export default function SignupForm() {
     form.watch("nickname") && form.watch("ageAgree") && form.watch("privacyAgree");
 
   const onSubmit = async (data: SignupFormValues) => {
-    const response = await putNickname(code, data.nickname);
-    if (response) {
-      const { identifier } = response;
-      router.push(`/bambok/${identifier}`);
-    } else {
+    try {
+      const response = await putNickname(code, data.nickname);
+      const { token } = response;
+      router.push(`/bambok?token=${token}`);
+    } catch (error) {
+      router.push("/");
       console.error("닉네임 저장 실패.");
     }
   };
@@ -52,7 +53,7 @@ export default function SignupForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex h-[90%] flex-col justify-between gap-2"
+        className="flex h-full flex-col justify-between gap-2"
       >
         <NicknameInput form={form} />
         <div className="flex justify-center">

@@ -13,10 +13,9 @@ export default async function BambokID({ params }: { params: { id: string } }) {
   const loggedInUser = userCookieStore ? JSON.parse(userCookieStore) : null; // 현재 유저
   const isSame = loggedInUser && loggedInUser.identifier === id;
   // console.log("현재 user와 동일한가", isSame);
-
   return (
     <div className="flex h-screen flex-col">
-      {isSame && <DDayProgress />}
+      {isSame && <DDayProgress createdAt={loggedInUser.createdAt} />}
 
       <div className="flex h-full max-h-[1000px] flex-col justify-around pl-[6%] pr-[6%]">
         <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />

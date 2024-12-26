@@ -1,11 +1,11 @@
 "use client";
-import { getBlessingsById } from "@/services/get-blessings-by-id";
-import { getBlessingsByToken } from "@/services/get-blessings-by-token";
-import { getUserById } from "@/services/get-user-by-id";
+import { getBlessingsById } from "@/services/apis/get-blessings-by-id";
+import { getBlessingsByToken } from "@/services/apis/get-blessings-by-token";
+import { getUserById } from "@/services/apis/get-user-by-id";
 import { BlessingType } from "@/types/blessings";
 import { UserType } from "@/types/user";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 type TitleProps = {
   isSame: boolean;
   identifier: string;
@@ -15,19 +15,23 @@ type TitleProps = {
 const Title = ({ isSame, identifier, loggedInUser, token }: TitleProps) => {
   const [receiveUser, setReceiveUser] = useState<UserType | null>(loggedInUser);
   const [blessings, setBlessings] = useState<BlessingType[] | []>([]);
-
+  const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
-      if (!isSame) {
-        const userdata = await getUserById(identifier);
-        setReceiveUser(userdata);
+      try {
+        if (!isSame) {
+          const userdata = await getUserById(identifier);
+          setReceiveUser(userdata);
 
-        const blessingdata = await getBlessingsById(identifier);
-        setBlessings(blessingdata);
-      } else {
-        const blessingdata = await getBlessingsByToken(token);
-        setBlessings(blessingdata);
-        setReceiveUser(loggedInUser);
+          const blessingdata = await getBlessingsById(identifier);
+          setBlessings(blessingdata);
+        } else {
+          const blessingdata = await getBlessingsByToken(token);
+          setBlessings(blessingdata);
+          setReceiveUser(loggedInUser);
+        }
+      } catch (error) {
+        router.push("/");
       }
     };
     fetchData();

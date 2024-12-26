@@ -10,11 +10,12 @@ const config: Config = {
     fontSize: {
       sm: "2.0vh",
       base: "2.3vh",
+      lg: "2.4vh",
       xl: "2.6vh",
       "2xl": "3vh",
       "3xl": "4vh",
       "4xl": "5vh",
-      "5xl": "6vh",
+      "5xl": "10vh",
     },
     backgroundImage: {
       "main-bg": "url('/background.png')",

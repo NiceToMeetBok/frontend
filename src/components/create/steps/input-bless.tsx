@@ -1,16 +1,19 @@
 import { Button, Input, Textarea } from "@/components/ui";
 import { BlessFormData } from "@/types/create";
 import { useForm, UseFormRegister } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 type InputBlessProps = {
   onNext: () => void;
   register: UseFormRegister<BlessFormData>; // 정확한 타입 지정
   watch: ReturnType<typeof useForm<BlessFormData>>["watch"];
+  identifier: string;
 };
 
-export default function InputBless({ onNext, register, watch }: InputBlessProps) {
+export default function InputBless({ onNext, register, watch, identifier }: InputBlessProps) {
   const nickname = watch("nickname");
   const message = watch("message");
+  const router = useRouter();
 
   return (
     <div className="flex h-full flex-col justify-between gap-7">
@@ -40,7 +43,7 @@ export default function InputBless({ onNext, register, watch }: InputBlessProps)
       <div className="flex w-full flex-row justify-between">
         <Button
           onClick={() => {
-            console.log("이전 페이지로 이동");
+            router.push(`${process.env.NEXT_PUBLIC_BASE_URL}/bambok/${identifier}`);
           }}
           className="w-[32%] rounded-lg bg-quaternary py-8 text-xl"
         >
