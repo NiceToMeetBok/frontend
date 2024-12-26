@@ -16,7 +16,7 @@ export default function InputBless({ onNext, register, watch, identifier }: Inpu
   const router = useRouter();
 
   return (
-    <div className="flex h-full flex-col justify-between gap-7">
+    <div className="flex h-full flex-col justify-between gap-[3vh]">
       <div className="text-lg">
         <span className="text-primary">뱀복이</span>가 대신 따뜻한 메세지를 전달해 드려요.
       </div>
