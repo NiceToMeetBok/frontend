@@ -23,7 +23,7 @@ export default function TermsAgreement({ form }: TermsAgreementProps) {
       <FormItem>
         <FormLabel htmlFor="allAgree" className="flex items-center gap-2">
           <Checkbox
-            className="h-6 w-6"
+            className="size-6"
             id="allAgree"
             checked={allAgree}
             onCheckedChange={handleAllAgreeChange}
@@ -41,7 +41,7 @@ export default function TermsAgreement({ form }: TermsAgreementProps) {
           <FormItem>
             <FormLabel htmlFor="ageAgree" className="flex items-center gap-2">
               <Checkbox
-                className="h-6 w-6"
+                className="size-6"
                 id="ageAgree"
                 checked={field.value}
                 onCheckedChange={field.onChange}
@@ -63,7 +63,7 @@ export default function TermsAgreement({ form }: TermsAgreementProps) {
           <FormItem>
             <FormLabel htmlFor="privacyAgree" className="flex items-center gap-2">
               <Checkbox
-                className="h-6 w-6"
+                className="size-6"
                 id="privacyAgree"
                 checked={field.value}
                 onCheckedChange={field.onChange}

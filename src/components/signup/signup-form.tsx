@@ -45,7 +45,7 @@ export default function SignupForm() {
       router.push(`/bambok?token=${token}`);
     } catch (error) {
       router.push("/");
-      console.error("닉네임 저장 실패.");
+      console.error("닉네임 저장 실패.", error);
     }
   };
 

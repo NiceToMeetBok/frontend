@@ -32,12 +32,12 @@ const URLButton = ({ identifier }: { identifier: string }) => {
         </Button>
       </CopyToClipboard>
       {showSuccessAlert && (
-        <div className="fixed bottom-28 left-1/2 -translate-x-1/2 rounded-3xl bg-black bg-opacity-50 px-4 py-4">
+        <div className="fixed bottom-28 left-1/2 -translate-x-1/2 rounded-3xl bg-black/50 p-4">
           URL 복사 성공!
         </div>
       )}
       {showFailAlert && (
-        <div className="fixed bottom-28 left-1/2 -translate-x-1/2 rounded-3xl bg-black bg-opacity-50 px-4 py-4">
+        <div className="fixed bottom-28 left-1/2 -translate-x-1/2 rounded-3xl bg-black/50 p-4">
           URL 복사 실패!
         </div>
       )}

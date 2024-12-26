@@ -32,10 +32,11 @@ const Title = ({ isSame, identifier, loggedInUser, token }: TitleProps) => {
         }
       } catch (error) {
         router.push("/");
+        console.error(error);
       }
     };
     fetchData();
-  }, [isSame, identifier, token]);
+  }, [isSame, identifier, token, loggedInUser]);
 
   return (
     <>

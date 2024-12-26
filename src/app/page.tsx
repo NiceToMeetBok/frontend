@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="h-[90vh] max-h-[900px]">
-      <div className="item-center flex h-full flex-col justify-evenly">
+      <div className="flex h-full flex-col items-center justify-evenly">
         <div className="flex flex-col gap-3">
           <div>
             <div className="text-center">

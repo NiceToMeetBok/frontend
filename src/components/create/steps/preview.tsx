@@ -10,18 +10,18 @@ type PreviewProps = {
 };
 
 export default function Preview({ onPrevious, onNext, getValues, r_nickname }: PreviewProps) {
-  const { nickname, message, luckyBagId } = getValues();
+  const { nickname, message } = getValues();
   const messageLines = message.trim().split("\n");
 
   return (
     <div className="flex h-full flex-col justify-between gap-7">
       <div className="text-lg">{r_nickname}님에게 아래와 같이 남겨져요!</div>
 
-      <div className="relative h-full w-full">
-        <img src="/letter.svg" className="absolute h-full w-full" alt="편지지" />
+      <div className="relative size-full">
+        <img src="/letter.svg" className="absolute size-full" alt="편지지" />
 
-        <div className="absolute left-1/2 top-1/2 box-border flex h-[60%] w-[70%] -translate-x-1/2 -translate-y-1/2 p-6">
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
+        <div className="absolute left-1/2 top-1/2 box-border flex h-3/5 w-[70%] -translate-x-1/2 -translate-y-1/2 p-6">
+          <div className="relative flex size-full items-center justify-center overflow-hidden">
             <div className="max-h-full w-full overflow-y-auto">
               {messageLines.map((line, index) => (
                 <div key={index} className="whitespace-pre-wrap break-words py-1 text-center">

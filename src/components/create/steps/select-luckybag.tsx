@@ -34,7 +34,11 @@ export default function SelectLuckybag({
                 luckyBagId === id ? "border-secondary" : "border-none"
               } p-1.5`}
             >
-              <img src={`/luckybags/${id}.png`} className="mx-auto w-3/4 object-contain" />
+              <img
+                src={`/luckybags/${id}.png`}
+                className="mx-auto w-3/4 object-contain"
+                alt="luckybag"
+              />
             </div>
           ))}
         </div>

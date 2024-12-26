@@ -18,7 +18,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
     updateProgress();
     const interval = setInterval(updateProgress, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [SignupTimeStamp, totalDuration]);
 
   // console.log(percent);
   return (
@@ -28,7 +28,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
         style={{ minWidth: "7vh", width: `${percent}%` }}
       >
         {percent >= 60 && (
-          <div className="flex w-full flex-col items-center text-[3.5vw]">
+          <div className="flex w-full flex-col items-center text-[3.5vh]">
             <div>
               <span>받은 덕담은 </span>
               <span className="text-white">2025년 1월 1일</span>
@@ -39,7 +39,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
         )}
 
         {percent > 40 && percent < 60 && (
-          <div className="flex w-full flex-col items-center justify-center text-[3.5vw]">
+          <div className="flex w-full flex-col items-center justify-center text-base">
             <span>받은 덕담은 </span>
             <div>
               <span className="text-white">2025년 1월 1일</span>
@@ -57,7 +57,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
       />
 
       {percent <= 40 && (
-        <div className="flex w-full flex-col items-center justify-center font-regular text-[3.5vw]">
+        <div className="flex w-full flex-col items-center justify-center font-regular text-base">
           <div>
             <span>받은 덕담은 </span>
             <span className="text-primary">2025년 1월 1일</span>
@@ -69,7 +69,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
       {percent > 40 && percent < 60 && (
         <div
           style={{ width: `${90 - percent}%` }}
-          className="flex w-full flex-col items-center justify-center font-regular text-[3.5vw]"
+          className="flex w-full flex-col items-center justify-center font-regular text-base"
         >
           확인할 수 있어요
         </div>

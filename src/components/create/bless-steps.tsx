@@ -78,7 +78,7 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
         />
       )}
       {showSuccessAlert && (
-        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 rounded-3xl bg-black bg-opacity-50 px-4 py-4">
+        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 rounded-3xl bg-black/50 p-4">
           덕담 남기기 성공!
         </div>
       )}

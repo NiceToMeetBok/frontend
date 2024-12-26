@@ -51,7 +51,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
 
   return (
     <div className="relative pb-10">
-      <img src="/bambok-basket.png" className="w-full" />
+      <img src="/bambok-basket.png" className="w-full" alt="basket" />
 
       {blessings.length > 0 ? (
         <>
@@ -61,14 +61,14 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
             return (
               <div
                 key={index}
-                className="absolute w-[20%] -translate-x-1/2 -translate-y-1/2"
+                className="absolute w-1/5 -translate-x-1/2 -translate-y-1/2"
                 style={{
                   left: position.left,
                   top: position.top,
                 }}
               >
                 <div className="flex flex-col items-center">
-                  <img src={`/luckybags/${blessing.luckyBagId}.png`} />
+                  <img src={`/luckybags/${blessing.luckyBagId}.png`} alt="luckybag" />
                   <div
                     className="overflow-hidden truncate text-center text-sm text-white"
                     style={{ width: "100%" }}
@@ -80,11 +80,11 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
             );
           })}
           {totalPages > 1 && (
-            <div className="absolute left-1/2 flex -translate-x-1/2 transform text-black">
+            <div className="absolute left-1/2 flex -translate-x-1/2 text-black">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
+                className="rounded bg-gray px-2 py-1 disabled:opacity-50"
               >
                 &lt;
               </button>
@@ -100,7 +100,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="bg-gray-700 rounded px-2 py-1 disabled:opacity-50"
+                className="rounded bg-gray px-2 py-1 disabled:opacity-50"
               >
                 &gt;
               </button>
@@ -108,7 +108,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
           )}
         </>
       ) : (
-        <div className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform text-2xl text-white">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-white">
           <div className="whitespace-nowrap">뱀복이를 공유하고</div>
           <div className="whitespace-nowrap">덕담을 받아보세요!</div>
         </div>

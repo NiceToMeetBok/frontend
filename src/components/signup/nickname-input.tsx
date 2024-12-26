@@ -31,7 +31,7 @@ const NicknameInput = ({ form }: NicknameInputProps) => {
                 maxLength={6}
                 {...field}
               />
-              <span className="flex-shrink-0 whitespace-nowrap text-sm text-darkgray">
+              <span className="flex shrink-0 whitespace-nowrap text-sm text-darkgray">
                 님의 뱀복이
               </span>
             </div>

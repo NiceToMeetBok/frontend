@@ -17,7 +17,7 @@ export default async function BambokID({ params }: { params: { id: string } }) {
     <div className="flex h-screen flex-col">
       {isSame && <DDayProgress createdAt={loggedInUser.createdAt} />}
 
-      <div className="flex h-full max-h-[1000px] flex-col justify-around pl-[6%] pr-[6%]">
+      <div className="flex h-full max-h-[1000px] flex-col justify-around px-[6%]">
         <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />
         <Basket isSame={isSame} identifier={id} token={token} />
         {isSame ? (

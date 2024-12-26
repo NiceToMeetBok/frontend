@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/bambok.png",
   },
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_BASE_URL}`),
 
   openGraph: {
     title: "만반잘복: 만나서 반가워. 새해도 잘 부탁해. 복 많이 받아",
