@@ -11,7 +11,7 @@ export default function Signup() {
         </div>
       </header>
 
-      <div className="flex h-full flex-col justify-center">
+      <div className="flex h-full flex-col pt-6">
         <SignupForm />
       </div>
     </div>

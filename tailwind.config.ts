@@ -10,6 +10,7 @@ const config: Config = {
     fontSize: {
       sm: "2.0vh",
       base: "2.3vh",
+      lg: "2.4vh",
       xl: "2.6vh",
       "2xl": "3vh",
       "3xl": "4vh",
