@@ -5,10 +5,10 @@ import InputBless from "./steps/input-bless";
 import SelectLuckybag from "./steps/select-luckybag";
 import Preview from "./steps/preview";
 import { BlessFormData } from "@/types/create";
-import { postBlessing } from "@/services/post-blessing";
+import { postBlessing } from "@/services/apis/post-blessing";
 import { LuckyBagIdType } from "@/types/blessings";
 import { useRouter } from "next/navigation";
-import { getUserById } from "@/services/get-user-by-id";
+import { getUserById } from "@/services/apis/get-user-by-id";
 import { UserType } from "@/types/user";
 
 export default function BlessSteps({ identifier }: { identifier: string }) {

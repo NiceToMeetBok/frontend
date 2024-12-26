@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { getBlessingsById } from "@/services/get-blessings-by-id";
-import { getBlessingsByToken } from "@/services/get-blessings-by-token";
+import { getBlessingsById } from "@/services/apis/get-blessings-by-id";
+import { getBlessingsByToken } from "@/services/apis/get-blessings-by-token";
 import { BlessingType } from "@/types/blessings";
 
 const BASKET_POSITION = [
