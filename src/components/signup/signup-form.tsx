@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { putNickname } from "@/services/apis/put-nickname";
 
 const signupSchema = z.object({
-  nickname: z.string().nonempty(),
+  nickname: z.string().nonempty().max(8, "닉네임은 최대 6자까지 가능합니다."),
   ageAgree: z.boolean(),
   privacyAgree: z.boolean(),
 });

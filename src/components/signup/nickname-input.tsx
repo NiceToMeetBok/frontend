@@ -24,7 +24,13 @@ const NicknameInput = ({ form }: NicknameInputProps) => {
           </FormLabel>
           <FormControl>
             <div className="flex w-full items-center gap-2 rounded-md border-2 border-secondary bg-quaternary px-3 py-2">
-              <Input id="nickname" className="min-w-0 flex-1" placeholder="ex) 보빈" {...field} />
+              <Input
+                id="nickname"
+                className="min-w-0 flex-1"
+                placeholder="ex) 보빈 (최대 6자)"
+                maxLength={6}
+                {...field}
+              />
               <span className="flex-shrink-0 whitespace-nowrap text-sm text-darkgray">
                 님의 뱀복이
               </span>
