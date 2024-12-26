@@ -6,15 +6,16 @@ type PreviewProps = {
   onPrevious: () => void;
   onNext: () => void;
   getValues: UseFormGetValues<BlessFormData>;
+  r_nickname: string;
 };
 
-export default function Preview({ onPrevious, onNext, getValues }: PreviewProps) {
+export default function Preview({ onPrevious, onNext, getValues, r_nickname }: PreviewProps) {
   const { nickname, message, luckyBagId } = getValues();
   const messageLines = message.trim().split("\n");
 
   return (
     <div className="flex h-full flex-col justify-between gap-7">
-      <div className="text-lg">보빈님에게 아래와 같이 남겨져요!</div>
+      <div className="text-lg">{r_nickname}님에게 아래와 같이 남겨져요!</div>
 
       <div className="relative h-full w-full">
         <img src="/letter.svg" className="absolute h-full w-full" alt="편지지" />

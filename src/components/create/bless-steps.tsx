@@ -1,6 +1,6 @@
 "use client";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputBless from "./steps/input-bless";
 import SelectLuckybag from "./steps/select-luckybag";
 import Preview from "./steps/preview";
@@ -8,9 +8,20 @@ import { BlessFormData } from "@/types/create";
 import { postBlessing } from "@/services/post-blessing";
 import { LuckyBagIdType } from "@/types/blessings";
 import { useRouter } from "next/navigation";
+import { getUserById } from "@/services/get-user-by-id";
+import { UserType } from "@/types/user";
 
 export default function BlessSteps({ identifier }: { identifier: string }) {
   const router = useRouter();
+  const [receiveUser, setReceiveUser] = useState<UserType | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userdata = await getUserById(identifier);
+      setReceiveUser(userdata);
+    };
+    fetchData();
+  }, [identifier]);
 
   const [step, setStep] = useState<"덕담입력" | "복주머니선택" | "미리보기">("덕담입력");
   const { register, handleSubmit, setValue, getValues, watch } = useForm<BlessFormData>({
@@ -42,7 +53,12 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
   return (
     <>
       {step === "덕담입력" && (
-        <InputBless onNext={() => setStep("복주머니선택")} register={register} watch={watch} identifier={identifier}  />
+        <InputBless
+          onNext={() => setStep("복주머니선택")}
+          register={register}
+          watch={watch}
+          identifier={identifier}
+        />
       )}
 
       {step === "복주머니선택" && (
@@ -58,6 +74,7 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
           onPrevious={() => setStep("복주머니선택")}
           onNext={handleSubmit(onSubmit)}
           getValues={getValues}
+          r_nickname={receiveUser?.nickname || ""}
         />
       )}
       {showSuccessAlert && (
