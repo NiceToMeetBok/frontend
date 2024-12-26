@@ -10,22 +10,22 @@ export const config = {
 export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  if (pathname === "/") {
-    const userCookie = request.cookies.get("user")?.value;
+  // if (pathname === "/") {
+  //   const userCookie = request.cookies.get("user")?.value;
 
-    if (userCookie) {
-      try {
-        const userData = JSON.parse(userCookie);
-        if (userData?.identifier) {
-          return NextResponse.redirect(new URL(`/bambok/${userData.identifier}`, request.url));
-        }
-      } catch (error) {
-        // console.error("User cookie 파싱 오류:", error);
-        return NextResponse.next();
-      }
-    }
-    return NextResponse.next();
-  }
+  //   if (userCookie) {
+  //     try {
+  //       const userData = JSON.parse(userCookie);
+  //       if (userData?.identifier) {
+  //         return NextResponse.redirect(new URL(`/bambok/${userData.identifier}`, request.url));
+  //       }
+  //     } catch (error) {
+  //       // console.error("User cookie 파싱 오류:", error);
+  //       return NextResponse.next();
+  //     }
+  //   }
+  //   return NextResponse.next();
+  // }
   if (pathname === "/signup") {
     const code = searchParams.get("code") || null;
     if (code) {

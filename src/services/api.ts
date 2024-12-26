@@ -1,7 +1,4 @@
 import axios from "axios";
-import { Cookies } from "react-cookie";
-
-const cookies = new Cookies();
 const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers: {
@@ -15,11 +12,10 @@ apiClient.interceptors.response.use(
     return response.data;
   },
   (error) => {
-    // if (error.response?.status === 401) { -> 이후 상세 처리
-    cookies.remove("user", { path: "/" });
-    cookies.remove("token", { path: "/" });
-
-    return Promise.reject(error); // 에러를 호출한 곳으로 전달
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/`;
+    }
+    return Promise.reject(error);
   },
 );
 
