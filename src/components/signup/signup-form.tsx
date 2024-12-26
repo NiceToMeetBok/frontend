@@ -41,8 +41,8 @@ export default function SignupForm() {
   const onSubmit = async (data: SignupFormValues) => {
     try {
       const response = await putNickname(code, data.nickname);
-      const { identifier } = response;
-      router.push(`/bambok/${identifier}`);
+      const { token } = response;
+      router.push(`/bambok?token=${token}`);
     } catch (error) {
       router.push("/");
       console.error("닉네임 저장 실패.");
