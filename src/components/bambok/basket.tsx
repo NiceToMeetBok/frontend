@@ -5,12 +5,12 @@ import { getBlessingsByToken } from "@/services/get-blessings-by-token";
 import { BlessingType } from "@/types/blessings";
 
 const BASKET_POSITION = [
-  { left: "50%", top: "50%" },
-  { left: "29%", top: "35%" },
-  { left: "75%", top: "38%" },
+  { left: "50%", top: "48%" },
+  { left: "29%", top: "30%" },
+  { left: "75%", top: "31%" },
   { left: "54%", top: "25%" },
-  { left: "30%", top: "62%" },
-  { left: "70%", top: "62%" },
+  { left: "30%", top: "55%" },
+  { left: "72%", top: "55%" },
 ];
 
 const ITEMS_PER_PAGE = 6;
@@ -69,7 +69,12 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
               >
                 <div className="flex flex-col items-center">
                   <img src={`/luckybags/${blessing.luckyBagId}.png`} />
-                  <div className="text-sm text-white">{blessing.nickname}</div>
+                  <div
+                    className="overflow-hidden truncate text-center text-sm text-white"
+                    style={{ width: "100%" }}
+                  >
+                    {blessing.nickname}
+                  </div>
                 </div>
               </div>
             );
