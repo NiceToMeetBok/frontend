@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import "../styles/reset.css";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/react";
 
 const regular = localFont({
   src: "./fonts/CookieRun Regular.ttf",
@@ -38,6 +39,7 @@ export default function RootLayout({
         <div className="flex w-full flex-col justify-center bg-main-bg sm:w-[500px]">
           <div>{children}</div>
         </div>
+        <Analytics />
       </body>
     </html>
   );
