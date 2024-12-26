@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { getUserByToken } from "./services/get-user-by-token";
+import { getUserByToken } from "./services/apis/get-user-by-token";
 import { UserType } from "./types/user";
 
 export const config = {
@@ -12,6 +12,7 @@ export async function middleware(request: NextRequest) {
 
   if (pathname === "/") {
     const userCookie = request.cookies.get("user")?.value;
+
     if (userCookie) {
       try {
         const userData = JSON.parse(userCookie);
@@ -19,13 +20,17 @@ export async function middleware(request: NextRequest) {
           return NextResponse.redirect(new URL(`/bambok/${userData.identifier}`, request.url));
         }
       } catch (error) {
-        console.error("User cookie 파싱 오류:", error);
+        // console.error("User cookie 파싱 오류:", error);
         return NextResponse.next();
       }
     }
     return NextResponse.next();
   }
   if (pathname === "/signup") {
+    const code = searchParams.get("code") || null;
+    if (code) {
+      return NextResponse.next();
+    }
     const userCookie = request.cookies.get("user")?.value;
     if (!userCookie) {
       return NextResponse.redirect(new URL("/", request.url));
