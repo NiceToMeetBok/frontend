@@ -50,7 +50,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative pb-10">
       <img src="/bambok-basket.png" className="w-full" />
 
       {blessings.length > 0 ? (
@@ -75,7 +75,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
             );
           })}
           {totalPages > 1 && (
-            <div className="absolute left-1/2 flex -translate-x-1/2 transform gap-2 text-black">
+            <div className="absolute left-1/2 flex -translate-x-1/2 transform text-black">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}

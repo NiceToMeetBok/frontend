@@ -40,10 +40,10 @@ export default function Preview({ onPrevious, onNext, getValues }: PreviewProps)
           한번 보내면 <span className="text-warn">수정할 수 없어요!</span>
         </div>
         <div className="flex w-full flex-row justify-between">
-          <Button onClick={onPrevious} className="h-16 w-[32%] rounded-lg bg-quaternary text-xl">
+          <Button onClick={onPrevious} className="w-[32%] rounded-lg bg-quaternary py-8 text-xl">
             이전
           </Button>
-          <Button className="h-16 w-[65%] rounded-lg bg-secondary text-xl" onClick={onNext}>
+          <Button className="w-[65%] rounded-lg bg-secondary py-8 text-xl" onClick={onNext}>
             덕담 남기기
           </Button>
         </div>
