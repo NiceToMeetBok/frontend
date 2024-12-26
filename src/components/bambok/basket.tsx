@@ -108,9 +108,18 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
           )}
         </>
       ) : (
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl text-white">
-          <div className="whitespace-nowrap">뱀복이를 공유하고</div>
-          <div className="whitespace-nowrap">덕담을 받아보세요!</div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-2xl text-white">
+          {isSame ? (
+            <>
+              <div className="whitespace-nowrap">뱀복이를 공유하고</div>
+              <div className="whitespace-nowrap">덕담을 받아보세요!</div>
+            </>
+          ) : (
+            <>
+              <div className="whitespace-nowrap">따뜻한 마음을 담아</div>
+              <div className="whitespace-nowrap">바구니를 채워주세요</div>
+            </>
+          )}
         </div>
       )}
     </div>

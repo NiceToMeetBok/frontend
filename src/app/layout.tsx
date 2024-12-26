@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "만반잘복: 만나서 반가워. 새해도 잘 부탁해. 복 많이 받아",
     description: "소중한 사람들에게 마음을 전할 수 있는 온라인 롤링 페이퍼 서비스 입니다.",
-    images: "/opengraph.svg",
+    images: "/opengraph-image.png",
   },
 };
 
