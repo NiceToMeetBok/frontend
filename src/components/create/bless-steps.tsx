@@ -42,7 +42,7 @@ export default function BlessSteps({ identifier }: { identifier: string }) {
   return (
     <>
       {step === "덕담입력" && (
-        <InputBless onNext={() => setStep("복주머니선택")} register={register} watch={watch} />
+        <InputBless onNext={() => setStep("복주머니선택")} register={register} watch={watch} identifier={identifier}  />
       )}
 
       {step === "복주머니선택" && (
