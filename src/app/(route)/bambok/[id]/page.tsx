@@ -25,13 +25,19 @@ export default async function BambokID({ params }: { params: { id: string } }) {
           <URLButton identifier={id} />
         ) : (
           <div className="flex w-full flex-row justify-between">
-            <Link className="w-[32%]" href="/">
-              <div className="mb-2 text-center text-sm text-primary"> 없다면 만들어봐요! </div>
+            <Link className="flex w-[32%] flex-col justify-end" href="/">
+              <div className="mb-2 text-center text-sm text-primary">
+                <span>없다면</span>
+                <span className="text-nowrap"> 만들어봐요!</span>
+              </div>
               <Button className="h-16 w-full rounded-lg bg-quaternary text-xl">내 뱀복이</Button>
             </Link>
             <Link className="w-[65%]" href={`/create/${id}`}>
               <div className="mb-2 text-center text-sm">
-                작성하신 덕담은 <span className="text-primary">2025년 1월 1일</span>에 공개 돼요!
+                작성하신 덕담은
+                <div>
+                  <span className="text-primary">2025년 1월 1일</span>에 공개 돼요!
+                </div>
               </div>
               <Button className="h-16 w-full rounded-lg bg-secondary text-xl">덕담 보내기</Button>
             </Link>
