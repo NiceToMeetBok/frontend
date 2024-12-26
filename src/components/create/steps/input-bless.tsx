@@ -42,12 +42,12 @@ export default function InputBless({ onNext, register, watch }: InputBlessProps)
           onClick={() => {
             console.log("이전 페이지로 이동");
           }}
-          className="h-16 w-[32%] rounded-lg bg-quaternary text-xl"
+          className="w-[32%] rounded-lg bg-quaternary py-8 text-xl"
         >
           이전
         </Button>
         <Button
-          className="h-16 w-[65%] rounded-lg bg-secondary text-xl"
+          className="w-[65%] rounded-lg bg-secondary py-8 text-xl"
           disabled={!nickname || !message}
           onClick={onNext}
         >

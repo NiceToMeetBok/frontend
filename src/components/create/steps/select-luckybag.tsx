@@ -25,14 +25,14 @@ export default function SelectLuckybag({
       </div>
 
       <div>
-        <div className="grid grid-cols-3 content-center items-center gap-4">
+        <div className="grid grid-cols-3 content-center items-center">
           {luckybagslist.map((id) => (
             <div
               key={id}
               onClick={() => setValue("luckyBagId", id)}
               className={`cursor-pointer rounded-lg border-2 ${
                 luckyBagId === id ? "border-secondary" : "border-none"
-              } p-2`}
+              } p-1.5`}
             >
               <img src={`/luckybags/${id}.png`} className="mx-auto w-3/4 object-contain" />
             </div>
@@ -41,10 +41,10 @@ export default function SelectLuckybag({
       </div>
 
       <div className="flex w-full flex-row justify-between">
-        <Button onClick={onPrevious} className="h-16 w-[32%] rounded-lg bg-quaternary text-xl">
+        <Button onClick={onPrevious} className="w-[32%] rounded-lg bg-quaternary py-8 text-xl">
           이전
         </Button>
-        <Button className="h-16 w-[65%] rounded-lg bg-secondary text-xl" onClick={onNext}>
+        <Button className="w-[65%] rounded-lg bg-secondary py-8 text-xl" onClick={onNext}>
           다음 단계 2/2
         </Button>
       </div>
