@@ -13,6 +13,6 @@ export const getBlessingsByToken = async (token: string): Promise<BlessingType[]
     return data;
   } catch (error) {
     console.error("덕담 GET 요청 실패:", error);
-    return [];
+    throw error;
   }
 };

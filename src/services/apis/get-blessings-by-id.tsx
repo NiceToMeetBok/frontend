@@ -8,7 +8,7 @@ export const getBlessingsById = async (identifier: string): Promise<BlessingType
     const data: BlessingType[] = response.data || response;
     return data;
   } catch (error) {
-    console.error("덕담 받는 사용자 정보 GET 요청 실패:", error);
-    return [];
+    console.error("id 기반 덕담 받는 GET 요청 실패:", error);
+    throw error;
   }
 };
