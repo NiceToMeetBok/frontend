@@ -1,3 +1,4 @@
+import generateUUID from "@/utils/generate-uuid";
 import axios from "axios";
 const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -6,6 +7,18 @@ const apiClient = axios.create({
   },
 });
 
+// 요청 인터셉터
+apiClient.interceptors.request.use(
+  (request) => {
+    const uuid = generateUUID();
+    request.headers["identifierCode"] = uuid;
+    return request;
+  },
+  (error) => {
+    console.error("Request Interceptor Error:", error);
+    return Promise.reject(error);
+  },
+);
 // 응답 인터셉터
 apiClient.interceptors.response.use(
   (response) => {
