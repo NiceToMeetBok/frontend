@@ -14,10 +14,10 @@ export default async function BambokID({ params }: { params: { id: string } }) {
   const isSame = loggedInUser && loggedInUser.identifier === id;
   // console.log("현재 user와 동일한가", isSame);
   return (
-    <div className="h-screen flex flex-col">
+    <div className="flex h-screen flex-col">
       {isSame && <DDayProgress createdAt={loggedInUser.createdAt} />}
 
-      <div className="h-full flex max-h-[1000px] flex-col justify-around px-[6%]">
+      <div className="flex h-full max-h-[1000px] flex-col justify-around px-[6%]">
         <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />
         <Basket isSame={isSame} identifier={id} token={token} />
         {isSame ? (
