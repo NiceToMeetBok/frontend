@@ -1,7 +1,7 @@
 "use client";
 
+import { DDAYTimeStamp } from "@/constants/dday";
 import { useEffect, useState } from "react";
-const DDAYTimeStamp = new Date("2025-01-01 00:00:00").getTime();
 
 export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
   const SignupTimeStamp = new Date(createdAt).getTime();
