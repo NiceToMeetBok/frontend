@@ -66,6 +66,9 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
                   left: position.left,
                   top: position.top,
                 }}
+                onClick={() => {
+                  console.log(blessing.luckyBagId);
+                }}
               >
                 <div className="flex flex-col items-center">
                   <img src={`/luckybags/${blessing.luckyBagId}.png`} alt="luckybag" />

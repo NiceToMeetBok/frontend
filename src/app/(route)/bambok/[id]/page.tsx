@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import Title from "@/components/bambok/title";
 import Basket from "@/components/bambok/basket";
+import { DDAY } from "@/constants/dday";
 
 export default async function BambokID({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -13,9 +14,12 @@ export default async function BambokID({ params }: { params: { id: string } }) {
   const loggedInUser = userCookieStore ? JSON.parse(userCookieStore) : null; // 현재 유저
   const isSame = loggedInUser && loggedInUser.identifier === id;
   // console.log("현재 user와 동일한가", isSame);
+
+  const now = new Date();
+  // DDAY 보다 now(현재)가 이후인 경우
   return (
     <div className="flex h-screen flex-col">
-      {isSame && <DDayProgress createdAt={loggedInUser.createdAt} />}
+      {isSame && now < DDAY && <DDayProgress createdAt={loggedInUser.createdAt} />}
 
       <div className="flex h-full max-h-[1000px] flex-col justify-around px-[6%]">
         <Title isSame={isSame} identifier={id} loggedInUser={loggedInUser} token={token} />
