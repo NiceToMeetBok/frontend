@@ -80,11 +80,11 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
             );
           })}
           {totalPages > 1 && (
-            <div className="absolute left-1/2 flex -translate-x-1/2 text-black">
+            <div className="absolute left-1/2 flex -translate-x-1/2 gap-2 text-black">
               <button
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="rounded bg-gray px-2 py-1 disabled:opacity-50"
+                className="rounded-full bg-gray px-4 py-1 disabled:opacity-50"
               >
                 &lt;
               </button>
@@ -100,7 +100,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="rounded bg-gray px-2 py-1 disabled:opacity-50"
+                className="rounded-full bg-gray px-4 py-1 disabled:opacity-50"
               >
                 &gt;
               </button>
