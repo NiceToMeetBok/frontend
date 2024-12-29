@@ -100,7 +100,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="rounded-full bg-gray px-4 py-1 disabled:opacity-5"
+                className="rounded-full bg-gray px-4 py-1 disabled:opacity-50"
               >
                 &gt;
               </button>
