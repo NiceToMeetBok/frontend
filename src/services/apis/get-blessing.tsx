@@ -14,7 +14,6 @@ export const getBlessing = async ({ id, token }: GetBlessingProps): Promise<Bles
     });
 
     const data: BlessingType = response.data || response;
-    console.log(data);
     return data;
   } catch (error) {
     console.error("덕담 받는 GET 요청 실패:", error);
