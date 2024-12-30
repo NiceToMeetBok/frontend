@@ -17,7 +17,7 @@ const Blessing = ({ params }: { params: { id: string } }) => {
       </header>
       <div className="py-4 text-lg">
         새해
-        <span className="px-2 text-primary">'복'</span>많이 받으세요!
+        <span className="px-2 text-primary">&apos;복&apos;</span>많이 받으세요!
       </div>
 
       <div className="flex-1 justify-between">
