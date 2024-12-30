@@ -23,7 +23,7 @@ const Content = ({ id, token }: ContentProps) => {
 
   return (
     <>
-      <div className="relative size-full">
+      <div className="relative h-[95%] w-full">
         <img src="/letter.svg" className="absolute size-full" alt="편지지" />
 
         <div className="absolute left-1/2 top-1/2 box-border flex h-3/5 w-[70%] -translate-x-1/2 -translate-y-1/2 p-6">
