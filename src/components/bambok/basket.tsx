@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { getBlessingsById } from "@/services/apis/get-blessings-by-id";
 import { getBlessingsByToken } from "@/services/apis/get-blessings-by-token";
 import { BlessingType } from "@/types/blessings";
+import { useRouter } from "next/navigation";
+import { DDAY } from "@/constants/dday";
 
 const BASKET_POSITION = [
   { left: "50%", top: "48%" },
@@ -22,6 +24,7 @@ type BasketProps = {
 };
 
 const Basket = ({ isSame, identifier, token }: BasketProps) => {
+  const router = useRouter();
   const [blessings, setBlessings] = useState<BlessingType[] | []>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -49,6 +52,12 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
     }
   };
 
+  const handleOpenBlessing = (id: number) => {
+    const now = new Date();
+    if (now >= DDAY && id != 0) {
+      router.push(`/blessing/${id}`);
+    }
+  };
   return (
     <div className="relative pb-10">
       <img src="/bambok-basket.png" className="w-full" alt="basket" />
@@ -66,9 +75,7 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
                   left: position.left,
                   top: position.top,
                 }}
-                onClick={() => {
-                  console.log(blessing.luckyBagId);
-                }}
+                onClick={() => handleOpenBlessing(blessing.id || 0)}
               >
                 <div className="flex flex-col items-center">
                   <img src={`/luckybags/${blessing.luckyBagId}.png`} alt="luckybag" />
