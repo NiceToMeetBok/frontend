@@ -54,10 +54,11 @@ const Basket = ({ isSame, identifier, token }: BasketProps) => {
 
   const handleOpenBlessing = (id: number) => {
     const now = new Date();
-    if (now >= DDAY && id != 0) {
+    if (now >= DDAY && id != 0 && isSame) {
       router.push(`/blessing/${id}`);
     }
   };
+
   return (
     <div className="relative pb-10">
       <img src="/bambok-basket.png" className="w-full" alt="basket" />
