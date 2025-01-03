@@ -7,7 +7,7 @@ export default function SignupLayout({
 }>) {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="h-[90vh] max-h-[900px]">{children}</div>
+      <div>{children}</div>
     </Suspense>
   );
 }

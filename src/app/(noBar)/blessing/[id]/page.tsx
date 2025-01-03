@@ -11,7 +11,7 @@ const Blessing = ({ params }: { params: { id: string } }) => {
   const loggedInUser = userCookie ? JSON.parse(userCookie) : null;
 
   return (
-    <div className="flex h-full flex-col justify-between px-[6%]">
+    <>
       <Header>덕담 보기</Header>
       <div className="py-4 text-lg">
         새해
@@ -25,7 +25,7 @@ const Blessing = ({ params }: { params: { id: string } }) => {
       <Link href={`/bambok/${loggedInUser?.identifier}`} className="flex justify-center">
         <Button className="w-full rounded-lg bg-secondary py-6 text-lg">돌아가기</Button>
       </Link>
-    </div>
+    </>
   );
 };
 
