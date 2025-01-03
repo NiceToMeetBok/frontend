@@ -28,7 +28,7 @@ export const DDayProgress = ({ createdAt }: { createdAt: string }) => {
         style={{ minWidth: "7vh", width: `${percent}%` }}
       >
         {percent >= 60 && (
-          <div className="flex w-full flex-col items-center text-[3.5vh]">
+          <div className="flex w-full flex-col items-center text-base">
             <div>
               <span>받은 덕담은 </span>
               <span className="text-white">2025년 1월 1일</span>
