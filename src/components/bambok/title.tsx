@@ -6,6 +6,7 @@ import { BlessingType } from "@/types/blessings";
 import { UserType } from "@/types/user";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Header } from "@/components/ui";
 type TitleProps = {
   isSame: boolean;
   identifier: string;
@@ -40,18 +41,16 @@ const Title = ({ isSame, identifier, loggedInUser, token }: TitleProps) => {
 
   return (
     <>
-      <header className="flex items-center">
-        <div className="font-bold text-3xl">
-          <div>
-            <span className="text-primary">{receiveUser?.nickname}</span>
-            <span> 님의 뱀복이가</span>
-          </div>
-          <div>
-            <span className="text-primary">{blessings.length}</span>
-            <span>개의 덕담을 받았어요. </span>
-          </div>
+      <Header>
+        <div>
+          <span className="text-primary">{receiveUser?.nickname}</span>
+          <span> 님의 뱀복이가</span>
         </div>
-      </header>
+        <div>
+          <span className="text-primary">{blessings.length}</span>
+          <span>개의 덕담을 받았어요. </span>
+        </div>
+      </Header>
     </>
   );
 };
