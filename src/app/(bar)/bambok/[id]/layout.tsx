@@ -22,5 +22,3 @@ export default async function BarLayout({
     </div>
   );
 }
-
-export const dynamicParams = true;
