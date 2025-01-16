@@ -8,12 +8,12 @@ const config: Config = {
   ],
   theme: {
     fontSize: {
-      sm: "clamp(12px, 2.0vh, 28px)",
-      base: "clamp(16px, 2.3vh, 28px)",
-      lg: "clamp(18px, 2.4vh, 28px)",
-      xl: "clamp(20px, 2.6vh, 28px)",
+      sm: "clamp(12px, 2.0vh, 20px)",
+      base: "clamp(16px, 2.3vh, 22px)",
+      lg: "clamp(18px, 2.4vh, 24px)",
+      xl: "clamp(20px, 2.6vh, 26px)",
       "2xl": "clamp(22px, 3vh, 28px)",
-      "3xl": "clamp(26px, 4vh, 48px)",
+      "3xl": "clamp(26px, 4vh, 40px)",
       "4xl": "clamp(30px, 5vh, 58px)",
       "5xl": "clamp(48px, 10vh, 68px)",
     },

@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function SignupLayout({
   children,
@@ -6,8 +7,8 @@ export default function SignupLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className="h-[90vh] max-h-[900px]">{children}</div>
+    <Suspense fallback={<Loading />}>
+      <div>{children}</div>
     </Suspense>
   );
 }
